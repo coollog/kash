@@ -1,5 +1,7 @@
 # krun - bash for Kubernetes
 
+**Note: This is an experimental prototype. Do NOT use for production.**
+
 Run bash in your Kubernetes cluster with a shared file system.
 
 ## What does this do
