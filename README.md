@@ -5,6 +5,8 @@ shared filesystem
 
 
 
+Cluster setup:
+
 ```bash
 kubectl apply -f k8s/krun-namespace.yaml
 ```
@@ -29,13 +31,14 @@ kubectl apply -f k8s/nfs-server.yaml
 kubectl apply -f k8s/nfs-volume.yaml
 ```
 
+Run:
+
 ```bash
-kubectl apply -f k8s/test-pods.yaml
+./krun bash
+./krun python
 ```
-```bash
-kubectl attach -it po/test1
-kubectl attach -it po/test2
-```
+
+Shared filesystem at /mnt
 
 See pods by node:
 
