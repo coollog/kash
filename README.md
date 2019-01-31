@@ -26,6 +26,8 @@ You can see if the pods are distributed evenly across nodes with:
 kubectl get pods -o wide
 ```
 
+*An alternate name could be BUG (bash using GKE) so you could run it by calling `./bug bash`.*
+
 ## How it works
 
 `krun` uses a Network File System to share the persistent disk across Pods running in multiple nodes. The Pods are also set to distribute across the nodes with anti-affinity towards other `krun` Pods. The shared file system is mounted at `krun`. `/krun/.bashrc` is the location of the `bashrc` and bash history is also shared among instances.
