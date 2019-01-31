@@ -38,7 +38,9 @@ Run:
 ./krun python
 ```
 
-Shared filesystem at /mnt
+Shared filesystem at /krun
+bash history is shared
+/krun/.bashrc
 
 See pods by node:
 

@@ -24,11 +24,20 @@ spec:
     command:
     - /usr/bin/env
     - bash
+    - --rcfile
+    - /krun/.bashrc
+    env:
+    - name: HISTFILE
+      value: /krun/.bash_history
+    # Synchronize the history for every command
+    - name: PROMPT_COMMAND
+      value: history -a;history -c;history -r
     stdin: true
     tty: true
     volumeMounts:
     - name: nfs
-      mountPath: "/mnt"
+      mountPath: /krun
+    workingDir: /krun
   volumes:
   - name: nfs
     persistentVolumeClaim:
