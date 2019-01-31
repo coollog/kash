@@ -14,7 +14,7 @@ def run_trials(filename):
   hits = 0
   total = 0
   while True:
-    for i in range(10*1000*1000):
+    for i in range(1000*1000):
       total += 1
 
       x = random.random()

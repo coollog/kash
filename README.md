@@ -1,3 +1,10 @@
+a simple interface to run bash across multiple machines
+
+NFS for filesystem backing
+shared filesystem
+
+
+
 ```bash
 kubectl apply -f k8s/krun-namespace.yaml
 ```
