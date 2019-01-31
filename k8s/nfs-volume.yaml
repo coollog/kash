@@ -4,13 +4,14 @@ metadata:
   name: nfs
 spec:
   capacity:
+    # Have this match the size of the disk.
     storage: 10Gi
   accessModes:
   - ReadWriteMany
   nfs:
+    # The NFS service backing this PV.
     server: nfs-server.krun.svc.cluster.local
     path: "/"
-
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -22,4 +23,5 @@ spec:
   storageClassName: ""
   resources:
     requests:
+      # Have this match the size of the disk.
       storage: 10Gi

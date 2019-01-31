@@ -1,3 +1,4 @@
+# Network File System server to back the shared disk.
 apiVersion: v1
 kind: Service
 metadata:
@@ -45,5 +46,6 @@ spec:
       volumes:
       - name: nfs-disk
         gcePersistentDisk:
+          # This needs to match the name of the GCE persistent disk.
           pdName: krun-nfs
           fsType: ext4

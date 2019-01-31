@@ -3,8 +3,11 @@ kind: Pod
 metadata:
   name: {POD_NAME}
   labels:
-    app: nfs-test
+    # Used for Pod anti-affinity.
+    krun: pod
 spec:
+  # Tells Kubernetes to try to not schedule this Pod on the same node as other
+  # instances of this Pod.
   affinity:
     podAntiAffinity:
       preferredDuringSchedulingIgnoredDuringExecution:
@@ -12,16 +15,18 @@ spec:
         podAffinityTerm:
           labelSelector:
             matchExpressions:
-            - key: app
+            - key: krun
               operator: In
               values:
-              - nfs-test
+              - pod
           topologyKey: kubernetes.io/hostname
   containers:
   - name: container
+    # The image should contain bash at least.
     image: {POD_IMAGE}
     imagePullPolicy: Always
     command:
+    # Always tries to use the bash from the user environment.
     - /usr/bin/env
     - bash
     - --rcfile
@@ -29,9 +34,10 @@ spec:
     env:
     - name: HISTFILE
       value: /krun/.bash_history
-    # Synchronize the history for every command
+    # Synchronizes the history after every command.
     - name: PROMPT_COMMAND
       value: history -a;history -c;history -r
+    # This allows for the container to be attached to.
     stdin: true
     tty: true
     volumeMounts:
