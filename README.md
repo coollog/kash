@@ -2,7 +2,7 @@
 
 **Note: This is an experimental prototype. Do NOT use for production.**
 
-Run bash in your Kubernetes cluster with a shared file system.
+Run bash in your Kubernetes cluster with a shared file system. Use your Kubernetes cluster like a simple distributed operating system where Kubernetes is just a process scheduler.
 
 ## What does this do
 
