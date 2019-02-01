@@ -9,7 +9,7 @@ POD_IMAGE=$1
 POD_NAME=$(uuidgen)
 
 # Applies the Pod template.
-cat k8s/krun-pod.yaml |
+cat k8s/kash-pod.yaml |
     sed -e "s/{POD_NAME}/${POD_NAME}/" |
     sed -e "s/{POD_IMAGE}/${POD_IMAGE}/" |
     kubectl apply -f -

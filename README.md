@@ -76,7 +76,7 @@ Set `GKE_NAME` to the name of the cluster you want to use and `GKE_ZONE` to the 
 
 ```bash
 export GKE_NAME=??? (ie. name of cluster)
-export GKE_ZONE=??? (eg. us-west1-c)
+export GKE_ZONE=??? (ie. location of cluster, eg. us-west1-c)
 ```
 
 Give `kubectl` credentials to control that cluster:
@@ -108,5 +108,7 @@ Run the NFS server:
 
 ```bash
 kubectl apply -f k8s/nfs-server.yaml
-kubectl apply -f k8s/nfs-volume.yaml
+cat k8s/nfs-volume.yaml |
+    sed -e "s/{DISK_SIZE}/${KASH_DISK_SIZE}/" |
+    kubectl apply -f -
 ```
