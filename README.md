@@ -20,6 +20,12 @@ Start up more bash instances on your cluster:
 $ ./kash bash
 ```
 
+Copy a file over:
+
+```bash
+$ ./kashcp ./myfile
+```
+
 `kash` will have Kubernetes try to distribute the bash instances across the available nodes. Every bash instance shares the same file system so **it feels like you are working on just one machine** except you are actually running bash across a cluster of machines.
 
 You can see if the pods are distributed evenly across nodes with:

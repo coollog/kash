@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+if [ -z "$1" ]; then
+  echo "Usage: ./kashcp <FILENAME>"
+  exit
+fi
+
+FILENAME=$1
+POD_NAME=$(uuidgen)
+
+# Applies the Pod template.
+cat k8s/kash-pod.yaml |
+    sed -e "s/{POD_NAME}/${POD_NAME}/" |
+    sed -e "s/{POD_IMAGE}/bash/" |
+    kubectl apply -f -
+
+echo "Running pod ${POD_NAME}..."
+
+# Waits for the Pod to start running.
+while [ $(kubectl get po ${POD_NAME} -o jsonpath="{.status.phase}") != "Running" ]
+do
+  sleep 1
+done
+
+# Copies file to the Pod.
+BASENAME=$(basename -- "${FILENAME}")
+kubectl cp $FILENAME ${POD_NAME}:${BASENAME}
+
+# Cleans up the Pod.
+kubectl delete po ${POD_NAME}
