@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 if [ -z "$1" ]; then
-  echo "Usage: ./krun.sh <IMAGE>"
+  echo "Usage: ./kash <IMAGE>"
+  exit
 fi
 
 POD_IMAGE=$1

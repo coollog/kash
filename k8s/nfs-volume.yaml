@@ -10,7 +10,7 @@ spec:
   - ReadWriteMany
   nfs:
     # The NFS service backing this PV.
-    server: nfs-server.krun.svc.cluster.local
+    server: nfs-server.kash.svc.cluster.local
     path: "/"
 ---
 apiVersion: v1

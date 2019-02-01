@@ -4,7 +4,7 @@ metadata:
   name: {POD_NAME}
   labels:
     # Used for Pod anti-affinity.
-    krun: pod
+    kash: pod
 spec:
   # Tells Kubernetes to try to not schedule this Pod on the same node as other
   # instances of this Pod.
@@ -15,7 +15,7 @@ spec:
         podAffinityTerm:
           labelSelector:
             matchExpressions:
-            - key: krun
+            - key: kash
               operator: In
               values:
               - pod
@@ -30,10 +30,10 @@ spec:
     - /usr/bin/env
     - bash
     - --rcfile
-    - /krun/.bashrc
+    - /kash/.bashrc
     env:
     - name: HISTFILE
-      value: /krun/.bash_history
+      value: /kash/.bash_history
     # Synchronizes the history after every command.
     - name: PROMPT_COMMAND
       value: history -a;history -c;history -r
@@ -42,8 +42,8 @@ spec:
     tty: true
     volumeMounts:
     - name: nfs
-      mountPath: /krun
-    workingDir: /krun
+      mountPath: /kash
+    workingDir: /kash
   volumes:
   - name: nfs
     persistentVolumeClaim:

@@ -47,5 +47,5 @@ spec:
       - name: nfs-disk
         gcePersistentDisk:
           # This needs to match the name of the GCE persistent disk.
-          pdName: krun-nfs
+          pdName: kash-nfs
           fsType: ext4
