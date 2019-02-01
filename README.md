@@ -1,3 +1,6 @@
+![experimental](https://img.shields.io/badge/stability-experimental-red.svg)
+[![Gitter chat](https://badges.gitter.im/coollog/kash.png)](https://gitter.im/coollog/kash)
+
 # kash - bash for Kubernetes
 
 **Note: This is an experimental prototype. Do NOT use for production.**
