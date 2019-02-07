@@ -6,7 +6,7 @@ if [ -z "$1" ]; then
 fi
 
 POD_IMAGE=$1
-POD_NAME=$(uuidgen)
+POD_NAME=$(uuidgen | tr "[:upper:]" "[:lower:]")
 
 # Applies the Pod template.
 cat k8s/kash-pod.yaml |

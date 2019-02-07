@@ -45,13 +45,19 @@ kubectl get pods -o wide
 
 ## Example - calculate PI
 
-First, use `kash` to copy the `examples/calculatepi/*.py` scripts into `/kash/*.py`. 
+First, use `kash` to copy the `examples/calculatepi/*.py` scripts into `/kash/*.py`:
+
+```bash
+$ ./kashcp examples/calculatepi/display_pi.py
+$ ./kashcp examples/calculatepi/run_trials.py
+``` 
 
 Then, in one window, run:
 
 ```bash
 $ ./kash python
 bash# mkdir trials
+bash# chmod +x ./display_pi
 bash# ./display_pi trials
 ```
 
@@ -59,6 +65,7 @@ In another window, run:
 
 ```bash
 $ ./kash python
+bash# chmod +x ./run_trials
 bash# ./run_trials trials/$RANDOM
 ```
 
