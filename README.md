@@ -39,6 +39,10 @@ kubectl get pods -o wide
 
 *An alternate name could be BUG (bash using GKE) so you could run it by calling `./bug bash`.*
 
+## Demo
+
+[![asciicast](https://asciinema.org/a/230099.svg)](https://asciinema.org/a/230099)
+
 ## How it works
 
 `kash` uses a Network File System to share the persistent disk across Pods running in multiple nodes. The Pods are also set to distribute across the nodes with anti-affinity towards other `kash` Pods. The shared file system is mounted at `kash`. `/kash/.bashrc` is the location of the `bashrc` and bash history is also shared among instances.
